@@ -1,14 +1,9 @@
 package ru.netology.web.test;
 
-import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.chrome.ChromeOptions;
 import ru.netology.web.page.DashboardPage;
 import ru.netology.web.page.LoginPage;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertAll;
@@ -34,14 +29,6 @@ public class MoneyTransferTest {
         secondCardInfo = getSecondCardInfo();
         firstCardBalance = dashboardPage.getCardBalance(firstCardInfo);
         secondCardBalance = dashboardPage.getCardBalance(secondCardInfo);
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--start-maximized");
-        Map<String, Object> prefs = new HashMap<String, Object>();
-        prefs.put("credentials_enable_service", false);
-        prefs.put("password_manager_enabled", false);
-        options.setExperimentalOption("prefs", prefs);
-        Configuration.browserCapabilities = options;
-
 
 
     }
